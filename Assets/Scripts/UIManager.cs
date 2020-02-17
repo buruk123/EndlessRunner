@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startGameContainer;
     [SerializeField] private GameObject endGameContainer;
     [SerializeField] private GameObject scoreContainer;
+    [SerializeField] private GameObject enemyScoreContainer;
 
     public void ShowStartGamePanel()
     {
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
         startGameContainer.SetActive(true);
         endGameContainer.SetActive(false);
         scoreContainer.SetActive(false);
+        enemyScoreContainer.SetActive(false);
     }
 
     public void ShowEndGamePanel()
@@ -21,6 +23,7 @@ public class UIManager : MonoBehaviour
         startGameContainer.SetActive(false);
         endGameContainer.SetActive(true);
         scoreContainer.SetActive(false);
+        enemyScoreContainer.SetActive(false);
     }
 
     public void HidePanel()
@@ -29,5 +32,6 @@ public class UIManager : MonoBehaviour
         startGameContainer.SetActive(false);
         endGameContainer.SetActive(false);
         scoreContainer.SetActive(true);
+        enemyScoreContainer.SetActive(true);
     }
 }

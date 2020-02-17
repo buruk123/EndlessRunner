@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreTextScript : MonoBehaviour
+public class ScoreTextScriptMultiPlayer : MonoBehaviour
 {
     private string scoreText;
-    [SerializeField] private Score score;
-    [SerializeField] private ScoreTextScript setScore;
+    [SerializeField] private ScoreMultiPlayer score;
+    [SerializeField] private ScoreTextScriptMultiPlayer setScore;
 
 
     public int ScoreText()

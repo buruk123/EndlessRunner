@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GameManagement : MonoBehaviour
+public class GameManagementMultiPlayer : MonoBehaviour
 {
     public BackgroundScroll BackgroundScroll;
     public PlayerMovement PlayerMovement;
     public EnemySpawn EnemySpawn;
     public UIManager UIManager;
-    public Score score;
-    public ScoreTextScript setScore;
+    public ScoreMultiPlayer Score;
+    public ScoreTextScriptMultiPlayer SetScore;
+    public EnemyScoreMultiPlayer EnemyScore;
 
     private bool isGameRunning;
 
@@ -34,7 +35,8 @@ public class GameManagement : MonoBehaviour
         BackgroundScroll.SetGameState(true);
         PlayerMovement.SetGameState(true);
         EnemySpawn.SetGameState(true);
-        score.SetGameState(true);
+        Score.SetGameState(true);
+        EnemyScore.SetGameState(true);
         UIManager.HidePanel();
     }
 
@@ -45,15 +47,16 @@ public class GameManagement : MonoBehaviour
         BackgroundScroll.SetGameState(false);
         PlayerMovement.SetGameState(false);
         EnemySpawn.SetGameState(false);
-        score.SetGameState(false);
-        setScore.ScoreText();
+        Score.SetGameState(false);
+        EnemyScore.SetGameState(false);
+        SetScore.ScoreText();
         UIManager.ShowEndGamePanel();
         
     }
 
     private IEnumerator updateScore()
     {
-        WWW site = new WWW("https://runnerendless.000webhostapp.com/uploadscore.php?score=" + setScore.ScoreText() + "&username=" + LoginManager.userName);
+        WWW site = new WWW("https://runnerendless.000webhostapp.com/uploadscore.php?score=" + SetScore.ScoreText() + "&username=" + LoginManager.userName);
         yield return site;
     }
 }

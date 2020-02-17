@@ -5,6 +5,14 @@ public class RestartButtonScript : MonoBehaviour
 {
     public void RestartScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        if (SceneManager.GetSceneByName("SampleScene").isLoaded)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("MultiplayerScene");
+        }
+        
     }
 }
