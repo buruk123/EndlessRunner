@@ -48,10 +48,6 @@ public class EnemySpawn : MonoBehaviour
     {
         enemies.Remove(enemy);
         enemy.BeforeDestroy -= OnBeforeDestroyEnemy;
-
-        //chyba dziala
-        //a da sie sfreezowac pozycje gracza na gameover?
-        //chyba tak daj chwile
     }
 
     private IEnumerator spawnEnumerator()

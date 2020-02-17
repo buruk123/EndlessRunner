@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 0.5f;
+    public float speed = .5f;
     public event Action<EnemyMovement> BeforeDestroy = delegate { };
 
     [SerializeField] private Rigidbody2D rb;
