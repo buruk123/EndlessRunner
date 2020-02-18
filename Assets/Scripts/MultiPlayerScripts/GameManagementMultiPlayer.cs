@@ -6,7 +6,7 @@ public class GameManagementMultiPlayer : MonoBehaviour
     public BackgroundScroll BackgroundScroll;
     public PlayerMovement PlayerMovement;
     public EnemySpawn EnemySpawn;
-    public UIManager UIManager;
+    public UIManagerMultiPlayer UIManager;
     public ScoreMultiPlayer Score;
     public ScoreTextScriptMultiPlayer SetScore;
     public EnemyScoreMultiPlayer EnemyScore;
