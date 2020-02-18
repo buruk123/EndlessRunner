@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ScoreMultiPlayer : MonoBehaviour
 {
+    public int Score => score;
+
     [SerializeField] private Text scoreText;
     private int score;
     private float timer;

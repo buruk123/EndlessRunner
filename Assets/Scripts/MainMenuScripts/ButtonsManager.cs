@@ -26,7 +26,7 @@ public class ButtonsManager : MonoBehaviour
 
     private void LoadMultiGame()
     {
-        SceneManager.LoadScene("MultiplayerScene");
+        SceneManager.LoadScene("LobbyScene");
     }
 
     private void ShowHighscores()

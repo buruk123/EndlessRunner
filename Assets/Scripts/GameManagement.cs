@@ -9,7 +9,6 @@ public class GameManagement : MonoBehaviour
     public UIManager UIManager;
     public Score score;
     public ScoreTextScript setScore;
-
     private bool isGameRunning;
 
     private void Start()
@@ -17,6 +16,11 @@ public class GameManagement : MonoBehaviour
         UIManager.ShowStartGamePanel();
         PlayerMovement.EnemyHit += GameOver;
         FindObjectOfType<AudioManager>().PlaySound("Background");
+    }
+
+    private void OnPlayerConnected(string playerName)
+    {
+        Debug.Log("Player connected! " + playerName);
     }
 
     private void Update()

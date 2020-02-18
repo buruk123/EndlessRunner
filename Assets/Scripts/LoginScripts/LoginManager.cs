@@ -33,6 +33,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private GameObject registerContainer;
     [SerializeField] private GameObject loginContainer;
 
+
     private void Start()
     {
         login.onClick.AddListener(Login);
