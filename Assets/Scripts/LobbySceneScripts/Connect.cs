@@ -13,9 +13,9 @@ public class Connect : NetworkManager
 {
     [SerializeField] private Button startHost;
     [SerializeField] private Button joinHost;
-    [SerializeField] private InputField networkNameToCreate;
     [SerializeField] private InputField networkNameToJoin;
     [SerializeField] private GameObject errorEmptyServerName;
+    [SerializeField] private GameObject infoClientConnected;
     public NetworkManager manager;
     public NetworkClient client;
     private bool playerConnected;
@@ -43,28 +43,21 @@ public class Connect : NetworkManager
         PlayerHasConnected += OnPlayerHasConnected;
     }
 
-    private void OnPlayerHasConnected()
+    private async void OnPlayerHasConnected()
     {
+        infoClientConnected.SetActive(true);
+        await Task.Delay(2000);
+        infoClientConnected.SetActive(false);
         SceneManager.LoadScene("MultiplayerScene");
     }
 
     private async void StartHosting()
     {
-        if (networkNameToCreate.text == null)
-        {
-            errorEmptyServerName.SetActive(true);
-            await Task.Delay(2000);
-            errorEmptyServerName.SetActive(false);
-        }
-        else
-        {
-            manager.networkPort = 7777;
-            client = manager.StartHost();
-            startHost.onClick.RemoveAllListeners();
-            startHost.onClick.AddListener(StopHosting);
-            startHost.GetComponentInChildren<Text>().text = "StopHost";
-            Debug.Log(client);
-        }
+        manager.networkPort = 7777;
+        client = manager.StartHost();
+        startHost.onClick.RemoveAllListeners();
+        startHost.onClick.AddListener(StopHosting);
+        startHost.GetComponentInChildren<Text>().text = "StopHost";
     }
 
     private void StopHosting()
@@ -92,6 +85,18 @@ public class Connect : NetworkManager
             client = manager.StartClient();
             await Task.Delay(1000);
             PlayerConnected = client.isConnected;
+
         }
+    }
+
+    public override async void OnServerConnect(NetworkConnection conn)
+    {
+        if (NetworkServer.connections.Count != 2) return;
+        await Task.Delay(1000);
+        infoClientConnected.SetActive(true);
+        await Task.Delay(2000);
+        infoClientConnected.SetActive(false);
+        SceneManager.LoadScene("MultiplayerScene");
+
     }
 }
