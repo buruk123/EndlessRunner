@@ -29,10 +29,15 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - SendScore
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RPC_CreatePlayer
+  - RPC_LoadGameOthers
+  - RPC_LoadGameScene
+  - CreatePlayer
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
