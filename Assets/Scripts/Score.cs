@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
                 score += 1;
                 timer -= .1f;
             }
-            scoreText.GetComponent<Text>().text = "Score: " + score.ToString();
+            scoreText.GetComponent<Text>().text = "Wynik: " + score.ToString();
         }
         
     }

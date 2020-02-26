@@ -36,9 +36,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         createRoom.interactable = false;
         joinRoom.interactable = false;
         Debug.Log("connecting to server");
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "LobbyScene")
+        {
+            PhotonNetwork.Disconnect();
+            PhotonNetwork.AutomaticallySyncScene = true;
+            PhotonNetwork.GameVersion = VERSION;
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        
+    }
 
     public override void OnConnectedToMaster()
     {
@@ -69,12 +80,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override async void OnPlayerEnteredRoom(Player newPlayer)
     {
         base.OnPlayerEnteredRoom(newPlayer);
-        newPlayer.NickName = "adsad";
+        newPlayer.NickName = LoginManager.userName;
         Debug.Log("player entered");
         infoPlayerConnected.SetActive(true);
         await Task.Delay(5000);
         infoPlayerConnected.SetActive(false);
-        // PhotonNetwork.Instantiate(playerPrefabName, Vector3.zero, Quaternion.identity);
         PhotonNetwork.LoadLevel("MultiplayerScene");
     }
 
@@ -86,8 +96,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         infoPlayerConnected.SetActive(true);
         await Task.Delay(5000);
         infoPlayerConnected.SetActive(false);
-        // PhotonNetwork.Instantiate(playerPrefabName, Vector3.zero, Quaternion.identity);
-        PhotonNetwork.LoadLevel("MultiplayerScene");
+        // PhotonNetwork.LoadLevel("MultiplayerScene");
     }
 
     public override async void OnPlayerLeftRoom(Player otherPlayer)
@@ -103,6 +112,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override async void OnJoinRoomFailed(short returnCode, string message)
     {
         base.OnJoinRoomFailed(returnCode, message);
+        Debug.Log(message);
         errorOnJoinRoomFailed.SetActive(true);
         await Task.Delay(2000);
         errorOnJoinRoomFailed.SetActive(false);
@@ -111,6 +121,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override async void OnCreateRoomFailed(short returnCode, string message)
     {
         base.OnCreateRoomFailed(returnCode, message);
+        Debug.Log(message);
         errorOnCreateRoomFailed.SetActive(true);
         await Task.Delay(2000);
         errorOnCreateRoomFailed.SetActive(false);
@@ -176,11 +187,5 @@ public class NetworkManager : MonoBehaviourPunCallbacks
                 button.GetComponentInChildren<Text>().text = "Dołącz do pokoju";
                 break;
         }
-    }
-
-    [PunRPC]
-    private void RPC_CreatePlayer()
-    {
-        PhotonNetwork.Instantiate(playerPrefabName, Vector3.zero, Quaternion.identity, 0);
     }
 }

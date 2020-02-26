@@ -39,5 +39,6 @@ MonoBehaviour:
   - RPC_LoadGameOthers
   - RPC_LoadGameScene
   - CreatePlayer
+  - ShowCounter
   DisableAutoOpenWizard: 1
   ShowSettings: 1

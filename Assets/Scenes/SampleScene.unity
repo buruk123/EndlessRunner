@@ -416,14 +416,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5332475, b: 0.8490566, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -434,9 +434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 'Wynik: 99999'
 --- !u!222 &492342674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -461,8 +459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138, y: -50}
-  m_SizeDelta: {x: 182, y: 40}
+  m_AnchoredPosition: {x: 292.4, y: -70.9}
+  m_SizeDelta: {x: 490.7, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492342676
 MonoBehaviour:
@@ -533,7 +531,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -686,8 +684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 159}
-  m_SizeDelta: {x: 704.5, y: 150.4}
+  m_AnchoredPosition: {x: 0.44995, y: 183}
+  m_SizeDelta: {x: 902.3, y: 210.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581047109
 MonoBehaviour:
@@ -722,13 +720,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 60
-    m_Alignment: 0
+    m_MaxSize: 70
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -896,6 +894,7 @@ MonoBehaviour:
   UIManager: {fileID: 624039236}
   score: {fileID: 492342676}
   setScore: {fileID: 581047109}
+  countDown: {fileID: 1582081458}
 --- !u!4 &652287452
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,7 +1014,7 @@ RectTransform:
   m_Children:
   - {fileID: 2113920570}
   m_Father: {fileID: 1961696555}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1154,8 +1153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888, y: 402.6}
-  m_SizeDelta: {x: 507.6, y: 109.1}
+  m_AnchoredPosition: {x: 0.44999, y: 407.1}
+  m_SizeDelta: {x: 705.4, y: 100.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061677573
 MonoBehaviour:
@@ -1176,12 +1175,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
+    m_FontSize: 90
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 70
+    m_MaxSize: 90
     m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -1265,7 +1264,7 @@ RectTransform:
   m_Children:
   - {fileID: 519245747}
   m_Father: {fileID: 1961696555}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1520,7 +1519,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000015259, y: -0.000024438}
-  m_SizeDelta: {x: 674.1, y: 136.8}
+  m_SizeDelta: {x: 1057.8, y: 136.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582081458
 MonoBehaviour:
@@ -1541,7 +1540,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
@@ -1684,7 +1683,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -1734,8 +1733,8 @@ RectTransform:
   m_Children:
   - {fileID: 1061677572}
   - {fileID: 1418275413}
-  - {fileID: 988353173}
   - {fileID: 1410436451}
+  - {fileID: 988353173}
   - {fileID: 581047108}
   m_Father: {fileID: 2068045058}
   m_RootOrder: 1
@@ -1875,7 +1874,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d96961837c2d30849afde017a515304e, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -1887,7 +1886,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Wyjd\u017A"
+  m_Text: "Wyjd\u017A z gry"
 --- !u!222 &2113920572
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 2
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4152393766703697851}
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6121a8852e4f4f242b545b695151ef7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 5049200959134841155}
   playerScore: 0
   enemyScore: 0
 --- !u!1 &8372502926715748550

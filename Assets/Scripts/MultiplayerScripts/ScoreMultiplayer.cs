@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class ScoreMultiplayer : MonoBehaviourPun, IPunObservable
 {
-    [SerializeField] private Text scoreText;
-    [SerializeField] private int playerScore;
-    [SerializeField] private int enemyScore;
+    public int playerScore;
+    public int enemyScore;
     private PhotonView photonView;
-
+    private Text scoreText;
     private float timer;
     private bool isGameRunning;
 
@@ -23,6 +22,7 @@ public class ScoreMultiplayer : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
+        scoreText = GameObject.Find("CanvasWithScore").GetComponentInChildren<Text>();
         if (isGameRunning)
         {
             timer += Time.deltaTime;
@@ -31,19 +31,23 @@ public class ScoreMultiplayer : MonoBehaviourPun, IPunObservable
                 playerScore += 1;
                 timer -= .1f;
             }
-            scoreText.GetComponent<Text>().text = "Score: " + playerScore;
-            // Debug.Log("Playerscore: " + playerScore + "||| Enemyscore: " + enemyScore);
+        }
+        if (enemyScore != 0)
+        {
+            scoreText.text = "Wynik: " + playerScore + "\nWynik przeciwnika: " + enemyScore;
         }
         
+
     }
     public void SetGameState(bool isRunning)
     {
         isGameRunning = isRunning;
+        // scoreText.gameObject.SetActive(isRunning);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        Debug.Log("henlo");
+        // Debug.Log("IsPlayerPlaying " + isPlayerPlaying + "|||IsEnemyPlaying " + isEnemyPlaying);
         if (stream.IsWriting)
         {
             stream.SendNext(playerScore);

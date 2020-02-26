@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerNetwork : MonoBehaviour, IPunObservable
+public class PlayerNetwork : MonoBehaviour
 {
     private PhotonView photonView;
     private string playerName;
@@ -65,10 +66,5 @@ public class PlayerNetwork : MonoBehaviour, IPunObservable
     private void CreatePlayer()
     {
         PhotonNetwork.Instantiate(PLAYER_PREFAB_NAME, Vector3.zero, Quaternion.identity, 0);
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        Debug.Log("hello");
     }
 }

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool isJumping;
     public bool gameOver;
+    private bool isRunning;
 
     private Sequence jumpDotweenAnimation;
 
@@ -16,11 +17,12 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.speed = 0;
+        isRunning = false;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.touchCount > 0 && isRunning)
         {
             if (isJumping || gameOver) return;
             isJumping = true;
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetGameState(bool isGameRunning)
     {
         animator.speed = isGameRunning ? 1 : 0;
+        isRunning = isGameRunning;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

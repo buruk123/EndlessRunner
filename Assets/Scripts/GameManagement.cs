@@ -1,5 +1,8 @@
 ﻿using System.Collections;
+using System.Globalization;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagement : MonoBehaviour
 {
@@ -9,26 +12,37 @@ public class GameManagement : MonoBehaviour
     public UIManager UIManager;
     public Score score;
     public ScoreTextScript setScore;
+    [SerializeField] private Text countDown;
     private bool isGameRunning;
+    private bool loadingGame;
+    private float timeLeft = 5.0f;
 
     private void Start()
     {
         UIManager.ShowStartGamePanel();
         PlayerMovement.EnemyHit += GameOver;
         FindObjectOfType<AudioManager>().PlaySound("Background");
-    }
-
-    private void OnPlayerConnected(string playerName)
-    {
-        Debug.Log("Player connected! " + playerName);
+        isGameRunning = false;
+        loadingGame = false;
     }
 
     private void Update()
     {
-        if (isGameRunning == false && Input.GetKey(KeyCode.Return))
+        if (PlayerMovement.gameOver) return;
+        if (isGameRunning == false)
         {
             isGameRunning = true;
-            ActivateGame();
+            loadingGame = true;
+        }
+        if (isGameRunning && loadingGame)
+        {
+            timeLeft -= Time.deltaTime;
+            countDown.text = timeLeft.ToString(CultureInfo.InvariantCulture).Substring(0, 1);
+            if (timeLeft < 0)
+            {
+                ActivateGame();
+                loadingGame = false;
+            }
         }
     }
 
@@ -36,10 +50,10 @@ public class GameManagement : MonoBehaviour
     {
         //gameObject.SetActive(false);
         BackgroundScroll.SetGameState(true);
-        PlayerMovement.SetGameState(true);
         EnemySpawn.SetGameState(true);
         score.SetGameState(true);
         UIManager.HidePanel();
+        PlayerMovement.SetGameState(true);
     }
 
     public void GameOver()

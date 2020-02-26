@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DDOL : MonoBehaviour
 {
+    private static DDOL instance = null;
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance == null)
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 }
